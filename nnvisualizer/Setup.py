@@ -10,14 +10,21 @@ class Setup():
 
     #function to load the model returns the .h5 model file
     def loadModel(self):
-        print('model loader function')  
         file = h5py.File(self.model_path, 'r')
         return file
-    
+
     def modelInfo(self):
-        path = self.model_path
-        layers = self.totalLayers()
-        print("path: "+ path,"layers: "+str(layers))
+        print('========MODEL INFO========')
+        file = self.loadModel()
+        layers = list(file.keys())
+        totalLayers= len(layers)
+        info = {
+            'layers':layers,
+            'totalLayers':totalLayers
+               }
+        print('========MODEL INFO========')
+        return info
+
 
     def totalLayers(self):
         return 1
