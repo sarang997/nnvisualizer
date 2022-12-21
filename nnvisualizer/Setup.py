@@ -8,11 +8,11 @@ class Setup():
         # file = h5py.File(self.model_path, 'r')
 
 
-    #function to load the model
+    #function to load the model returns the .h5 model file
     def loadModel(self):
-        print('model loader function')
+        print('model loader function')  
         file = h5py.File(self.model_path, 'r')
-
+        return file
     
     def modelInfo(self):
         path = self.model_path
