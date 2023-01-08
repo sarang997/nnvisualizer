@@ -8,4 +8,3 @@ import numpy as np
 path = '/home/sarang/Downloads/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
 setup = Setup(model_path =path)
 setup.showPlot()
-print(weights)

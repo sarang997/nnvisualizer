@@ -1,4 +1,4 @@
-import matplotlib.plt as pyplot
+import matplotlib.pyplot as plt
 
 class Visualize:
     def __init__(self,weights_single_layer):
@@ -6,11 +6,9 @@ class Visualize:
         print('constructor function')
 
     def plot_np_ndarray(self):
-        arr = arr.reshape(3*3, 3*64)
-
+        wt = self.arr.reshape(3*3, 3*64)
         # Plot the array as an image
-        plt.imshow(arr)
+        plt.imshow(wt)
 
         # Show the plot
         plt.show()
-        exit()

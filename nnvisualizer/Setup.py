@@ -7,7 +7,6 @@ import h5py
 class Setup():
     def __init__(self,model_path):
         self.model_path = model_path
-        # file = h5py.File(self.model_path, 'r')
 
 
     #function to load the model returns the .h5 model file
@@ -34,14 +33,26 @@ class Setup():
     def getWeights(self):
         f = h5py.File(self.model_path, 'r')
         # Loop through the groups in the file
+        all_weights = []
         for i, group in enumerate(f.keys()):
         # Loop through the datasets in the group
+            layer_weights = []
             for j, dataset in enumerate(f[group].keys()):
                 # Get the weights for the dataset
                 weights = f[group][dataset][()]
-                return weights
-                exit('dfjdjf')
+                layer_weights.append(weights)
+            all_weights.append(layer_weights)
+        return all_weights
     
     def showPlot(self):
         arr = self.getWeights()
-        Visualize.plot_np_ndarray(arr)
+        for layer in arr:
+            print(len(layer))
+            for dataset in layer:
+                visualize = Visualize(dataset)
+                self.dataset = dataset
+                try:
+                    visualize.plot_np_ndarray()
+                except:
+                    continue
+                # exit('dfjdfj')
