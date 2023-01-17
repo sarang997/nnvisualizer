@@ -4,7 +4,7 @@ with open("readme.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="quicksample",                     # This is the name of the package
+    name="deep-visualizer",                     # This is the name of the package
     version="0.0.1",                        # The initial release version
     author="Sarang",                     # Full name of the author
     description="deep-visualizer package for deep networks",
